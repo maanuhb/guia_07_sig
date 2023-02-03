@@ -35,24 +35,11 @@ maxZoom: 18
 });
 
 
-var municipios = L.tileLayer.wms("http://localhost:8080/geoserver/wms", {
- layers: 'municipios',
+var guia_07 = L.tileLayer.wms("http://localhost:8080/geoserver/wms", {
+ layers: 'guia_07',
  format: 'image/png',
  transparent: true,
  attribution: "municipios de El Salvador"
-});
-
-var rios = L.tileLayer.wms("http://localhost:8080/geoserver/wms", {
- layers: 'rios',
- format: 'image/png',
- transparent: true,
- attribution: "rios de El Salvador"
-});
-var cerros = L.tileLayer.wms("http://localhost:8080/geoserver/wms", {
- layers: 'cerros',
- format: 'image/png',
- transparent: true,
- attribution: "cerros de El Salvador"
 });
 
 //Añadimos los dos objetos
@@ -60,9 +47,7 @@ var baseMaps = {
  "OpenStreetMap": osm
 };
 var overlayMaps = {
- "muncipios": municipios, 
-  "rios": rios,
-  "cerros": cerros,
+ "guia_07": guia_07,
  };
 
 //Creamos el mapa
@@ -70,7 +55,7 @@ var map = L.map('map', {
 center: new L.LatLng(13.65, -89.17),
 zoom: 10,
 //Añadimos las capas al mapa
-layers: [osm, municipios, rios, cerros]
+layers: [osm, guia_07]
 });
 
 
